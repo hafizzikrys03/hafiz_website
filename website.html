@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ms">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Laman Web Peribadi Hafiz</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            scroll-behavior:smooth;
+        }
+
+        body{
+            font-family:'Segoe UI', sans-serif;
+            background:#eaf1f8;
+            color:#1f2937;
+            line-height:1.7;
+        }
+
+        /* HEADER */
+
+        header{
+
+            background:
+            linear-gradient(rgba(8,42,89,0.75),
+            rgba(8,42,89,0.75)),
+            url('background.jpg');
+
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+
+            color:white;
+            text-align:center;
+
+            padding:140px 20px;
+
+            box-shadow:0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        header h1{
+            font-size:50px;
+            margin-bottom:20px;
+            letter-spacing:2px;
+        }
+
+        header p{
+            font-size:20px;
+            max-width:850px;
+            margin:auto;
+        }
+
+        /* NAVIGATION */
+
+        nav{
+            background:#0b3b75;
+            position:sticky;
+            top:0;
+            z-index:1000;
+            box-shadow:0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul{
+            display:flex;
+            justify-content:center;
+            list-style:none;
+            flex-wrap:wrap;
+        }
+
+        nav ul li{
+            margin:15px 20px;
+        }
+
+        nav ul li a{
+            color:white;
+            text-decoration:none;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        nav ul li a:hover{
+            color:#9ec5fe;
+        }
+
+        /* CONTAINER */
+
+        .container{
+            width:90%;
+            max-width:1200px;
+            margin:auto;
+            padding:40px 0;
+        }
+
+        /* SECTION */
+
+        section{
+            background:white;
+            margin-bottom:30px;
+            padding:40px;
+            border-radius:20px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.08);
+            border-left:6px solid #0b3b75;
+            transition:0.3s;
+        }
+
+        section:hover{
+            transform:translateY(-5px);
+        }
+
+        h2{
+            color:#0b3b75;
+            margin-bottom:20px;
+            font-size:35px;
+        }
+
+        /* PROFILE IMAGE */
+
+        .profile-img{
+            display:block;
+            margin:30px auto;
+            width:220px;
+            height:220px;
+            object-fit:cover;
+            border-radius:50%;
+            border:6px solid #0b3b75;
+            box-shadow:0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* HOBI */
+
+        ul{
+            margin-left:20px;
+        }
+
+        ul li{
+            margin-bottom:12px;
+            font-size:18px;
+        }
+
+        /* AUDIO */
+
+        audio{
+            width:100%;
+            margin-top:20px;
+        }
+
+        /* VIDEO */
+
+        video{
+            width:100%;
+            max-width:700px;
+            display:block;
+            margin:auto;
+            margin-top:20px;
+            border-radius:15px;
+            box-shadow:0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        /* CARD */
+
+        .card-container{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+            gap:20px;
+            margin-top:20px;
+        }
+
+        .card{
+            background:#f8fbff;
+            padding:25px;
+            border-radius:15px;
+            text-align:center;
+            box-shadow:0 4px 10px rgba(0,0,0,0.08);
+            transition:0.3s;
+        }
+
+        .card:hover{
+            background:#0b3b75;
+            color:white;
+            transform:translateY(-5px);
+        }
+
+        .card h3{
+            margin-bottom:10px;
+        }
+
+        /* CONTACT SECTION */
+
+        .contact-section{
+            padding:20px;
+        }
+
+        .contact-card{
+            background:linear-gradient(135deg,#0b3b75,#124d96);
+            color:white;
+            max-width:700px;
+            margin:auto;
+            padding:40px;
+            border-radius:25px;
+            text-align:center;
+            box-shadow:0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .contact-card:hover{
+            transform:translateY(-5px);
+            transition:0.3s;
+        }
+
+        .contact-img{
+            width:180px;
+            height:180px;
+            border-radius:50%;
+            object-fit:cover;
+            border:6px solid white;
+            margin-bottom:20px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .profession{
+            font-size:20px;
+            margin-bottom:30px;
+        }
+
+        .info-box{
+            background:rgba(255,255,255,0.1);
+            padding:25px;
+            border-radius:15px;
+            margin-bottom:30px;
+        }
+
+        .info-box p{
+            margin:15px 0;
+            font-size:18px;
+        }
+
+        /* FORM */
+
+        .chat-box{
+            background:white;
+            padding:30px;
+            border-radius:20px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .chat-box h3{
+            color:#0b3b75;
+            margin-bottom:25px;
+            font-size:30px;
+        }
+
+        .contact-form{
+            display:flex;
+            flex-direction:column;
+            gap:18px;
+        }
+
+        .contact-form input,
+        .contact-form textarea{
+            width:100%;
+            padding:16px;
+            border:1px solid #cfd8e3;
+            border-radius:12px;
+            font-size:16px;
+            background:#f8fbff;
+            transition:0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus{
+            border-color:#0b3b75;
+            outline:none;
+            box-shadow:0 0 8px rgba(11,59,117,0.3);
+            background:white;
+        }
+
+        /* BUTTON */
+
+        .contact-form button{
+            background:#0b3b75;
+            color:white;
+            border:none;
+            padding:16px;
+            border-radius:12px;
+            font-size:18px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .contact-form button:hover{
+            background:#124d96;
+            transform:translateY(-3px);
+        }
+
+        /* FOOTER */
+
+        footer{
+            background:#0b3b75;
+            color:white;
+            text-align:center;
+            padding:25px;
+            margin-top:40px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:768px){
+
+            header h1{
+                font-size:32px;
+            }
+
+            header p{
+                font-size:16px;
+            }
+
+            nav ul{
+                flex-direction:column;
+                text-align:center;
+            }
+
+            section{
+                padding:25px;
+            }
+
+            h2{
+                font-size:28px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <h1>
+            MY WEBSITE
+        </h1>
+
+        <p>
+            “Selamat datang ke laman web peribadi saya.
+            Di sini anda dapat mengenali tentang diri saya,
+            hobi, aktiviti serta lain-lain perkara berkenaan diri saya.”
+        </p>
+
+    </header>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <ul>
+
+            <li><a href="#pengenalan">Pengenalan</a></li>
+            <li><a href="#hobi">Hobi</a></li>
+            <li><a href="#aktiviti">Aktiviti</a></li>
+            <li><a href="#lain">Lain-Lain</a></li>
+            <li><a href="#hubungi">Hubungi Saya</a></li>
+
+        </ul>
+
+    </nav>
+
+    <!-- CONTAINER -->
+
+    <div class="container">
+
+        <!-- PENGENALAN -->
+
+        <section id="pengenalan">
+
+            <h2>Pengenalan</h2>
+
+            <p>
+                Assalamualaikum dan salam sejahtera.
+            </p>
+
+            <p>
+                Nama saya <b>Muhamad Hafiz Zikry Bin Syaifuddin</b>,
+                berumur <b>23 tahun</b> dan berasal dari negeri
+                <b>Perak</b>.
+            </p>
+
+            <p>
+                Saya merupakan pelajar <b>Tahun 3</b> dari
+                <b> Fakulti Pendidikan Teknikal Dan Vokasional</b>
+                di <b>Universiti Tun Hussein Onn Malaysia (UTHM)</b>
+ </p>
+<p>
+                dalam jurusan
+                <b>Ijazah Sarjana Muda Pendidikan Multimedia Kreatif Dengan Kepujian</b>.
+            </p>
+
+            <img src="gambar_saya.jpg"
+            alt="Gambar Hafiz"
+            class="profile-img">
+
+        </section>
+
+        <!-- HOBI -->
+
+        <section id="hobi">
+
+            <h2>Hobi</h2>
+
+            <ul>
+
+                <li>Bermain permainan video game</li>
+                <li>Suka camping</li>
+                <li>Suka travel negeri di malaysia</li>
+                <li>Mendengar muzik</li>
+
+            </ul>
+
+            <h3>Muzik Kegemaran</h3>
+
+            <audio controls>
+
+                <source src="muzik.mp3" type="audio/mpeg">
+
+                Browser anda tidak menyokong audio.
+
+            </audio>
+
+        </section>
+
+        <!-- AKTIVITI -->
+
+        <section id="aktiviti">
+
+            <h2>Aktiviti</h2>
+
+            <p>
+                Antara aktiviti yang saya sertai sepanjang saya berada di universiti ialah berucap di Dewan Perwakilan Mahasiswa UTHM.
+            </p>
+
+            <video controls>
+
+                <source src="video.mp4" type="video/mp4">
+
+                Browser anda tidak menyokong video.
+
+            </video>
+
+        </section>
+
+        <!-- Lain-Lain -->
+
+        <section id="lain">
+
+            <h2>Lain-lain</h2>
+
+            <div class="card-container">
+
+                <div class="card">
+
+                    <h3>Pengerusi Badan Beruniform Kelanasiswa Malaysia UTHM</h3>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Tim. Exco Media Dan Publisiti SEMARAK UTHM</h3>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Seorang Yang Suka Aktiviti Lasak Seperti Hiking, Abseiling Dan Sebagainya</h3>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>Merupakan Ahli Dewan Perwakilan Mahasiswa UTHM Sesi 2024/2025 dan 2025/2026</h3>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- HUBUNGI -->
+
+        <section id="hubungi" class="contact-section">
+
+            <div class="contact-card">
+
+                <img src="gambar_saya.jpg"
+                alt="Profil Hafiz"
+                class="contact-img">
+
+                <h1>
+                    Muhamad Hafiz Zikry Bin Syaifuddin
+                </h1>
+
+                <p class="profession">
+                    Pelajar Fakulti Pendidikan Teknikal Dan Vokasional (FPTV)
+                </p>
+
+                <div class="info-box">
+
+                    <p>
+                        📞 <b>No Telefon:</b> 0175632989
+                    </p>
+
+                    <p>
+                        📧 <b>Email:</b> hafiz@gmail.com
+                    </p>
+
+                    <p>
+                        📍 <b>Lokasi:</b> Perak, Malaysia
+                    </p>
+
+                </div>
+
+                <!-- FORM -->
+
+                <div class="chat-box">
+
+                    <h3>Hantar Pertanyaan Kepada Hafiz</h3>
+
+                    <form class="contact-form">
+
+                        <input type="text"
+                        placeholder="Masukkan Nama Anda"
+                        required>
+
+                        <input type="email"
+                        placeholder="Masukkan Email Anda"
+                        required>
+
+                        <input type="tel"
+                        placeholder="Masukkan No Telefon Anda"
+                        required>
+
+                        <input type="text"
+                        placeholder="Tajuk Pertanyaan"
+                        required>
+
+                        <textarea rows="6"
+                        placeholder="Tulis pertanyaan anda di sini..."
+                        required></textarea>
+
+                        <button type="submit">
+                            Hantar Mesej
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 Laman Web Peribadi Muhamad Hafiz Zikry Bin Syaifuddin
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
